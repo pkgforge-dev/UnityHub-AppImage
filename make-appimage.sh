@@ -2,14 +2,21 @@
 
 set -eu
 
+if [ "${DEVEL_RELEASE-}" = 1 ]; then
+	# Currently massively OOD, will fix later
+	pkg=unityhub-beta
+else
+	pkg=unityhub
+fi
+
 ARCH=$(uname -m)
-VERSION=$(pacman -Q PACKAGENAME | awk '{print $2; exit}') # example command to get version of application here
+VERSION=$(pacman -Q "$pkg" | awk '{print $2; exit}') # example command to get version of application here
 export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
-export ICON=PATH_OR_URL_TO_ICON
-export DESKTOP=PATH_OR_URL_TO_DESKTOP_ENTRY
+export ICON=/usr/share/icons/hicolor/256x256/apps/unityhub.png
+export DESKTOP=/usr/share/applications/unityhub.desktop
 
 # Deploy dependencies
 quick-sharun /usr/bin/unityhub
