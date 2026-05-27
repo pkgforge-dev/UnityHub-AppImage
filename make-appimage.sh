@@ -23,6 +23,10 @@ quick-sharun ./AppDir/bin/*
 
 # Additional changes can be done in between here
 
+# This is hardcoded to look into /usr/bin/ldd and causes a crash
+# looks like we only need to patch this path away, it seems to work without it
+sed -i -e 's|/usr/bin/ldd|/XXX/YYY/ZZZ|g' ./AppDir/bin/resources/app.asar
+
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
 
