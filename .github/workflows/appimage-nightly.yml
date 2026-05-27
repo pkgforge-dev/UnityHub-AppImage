@@ -41,7 +41,7 @@ jobs:
           path: dist
 
   release:
-    if: ${{ github.ref_name == 'main' }}
+    if: ${{ github.ref_name == 'master' }}
     needs: [build]
     permissions: write-all
     runs-on: ubuntu-latest
