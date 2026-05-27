@@ -19,7 +19,11 @@ export ICON=/usr/share/icons/hicolor/256x256/apps/unityhub.png
 export DESKTOP=/usr/share/applications/unityhub.desktop
 
 # Deploy dependencies
-quick-sharun /opt/unityhub
+quick-sharun /opt/unityhub/*
+
+mkdir -p AppDir/bin
+ln -s ../opt/unityhub/unityhub AppDir/bin/unityhub
+ln -s ../opt/unityhub/unityhub-bin AppDir/bin/unityhub-bin
 
 # Additional changes can be done in between here
 
