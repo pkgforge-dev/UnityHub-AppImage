@@ -23,3 +23,6 @@ if [ "${DEVEL_RELEASE-}" = 1 ]; then
 else
 	make-aur-package unityhub
 fi
+
+mkdir -p AppDir/bin
+cp -rv /opt/unityhub/* AppDir/bin
