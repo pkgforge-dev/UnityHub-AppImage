@@ -25,4 +25,4 @@ else
 fi
 
 mkdir -p AppDir/bin
-cp -rv /opt/unityhub/* AppDir/bin
+cp -rv /usr/lib/unityhub/* AppDir/bin
